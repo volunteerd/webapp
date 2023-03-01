@@ -1,0 +1,38 @@
+{
+  "name": "webapp",
+  "version": "1.0.0",
+  "description": "Web application connecting nonprofits and volunteer software engineers",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/volunteerd/webapp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/volunteerd/webapp/issues"
+  },
+  "homepage": "https://github.com/volunteerd/webapp#readme",
+  "dependencies": {
+    "concurrently": "^7.6.0",
+    "cross-env": "^7.0.3",
+    "html-webpack-plugin": "^5.5.0",
+    "node-fetch": "^3.3.0",
+    "pg": "^8.9.0",
+    "react": "^18.2.0",
+    "react-router": "^6.8.2",
+    "ts-loader": "^9.4.2",
+    "typescript": "^4.9.5",
+    "webpack": "^5.75.0"
+  },
+  "devDependencies": {
+    "dotenv": "^16.0.3",
+    "eslint": "^8.35.0",
+    "express": "^4.18.2",
+    "nodemon": "^2.0.20",
+    "ts-node": "^10.9.1"
+  }
+}
