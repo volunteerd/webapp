@@ -1,14 +1,13 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
-import { touchDatabase } from './script';
+// import { BrowserRouter } from 'react-router-dom';
+import { createDatabase, readDatabase } from './script';
 
 export default function App () {
     return (
-        <BrowserRouter>
           <div>
             Hi
-            <button onClick={() => touchDatabase()}>Send</button>
+            <button onClick={() => createDatabase()}>Write</button>
+            <button onClick={() => readDatabase()}>Read</button>
           </div>
-        </BrowserRouter>
     )
 }

@@ -1,11 +1,12 @@
 const { Pool } = require('pg');
+require('dotenv').config();
 
-const myURI = '';
+const URI = process.env.PG_URI;
 
-const URI = process.env.PG_URI || myURI;
+console.log(URI);
 
 const pool = new Pool ({
-    connectionString: myURI
+    connectionString: URI
 })
 
 module.exports = {
