@@ -4,7 +4,7 @@ import { Request, Response, NextFunction } from 'express';
 const db = require('../model/model');
 
 const userController = {
-    volSignup: async (req: Request, res: Response, next: NextFunction) {
+    volSignup: async (req: Request, res: Response, next: NextFunction) => {
       try {
         // Destructure form fields from req.body (firstName, lastName, companyName, bio, linkedinLink, githubLink, username, password)
         const { firstName, lastName, companyName, bio, linkedinLink, githubLink, username, password } = req.body;        
