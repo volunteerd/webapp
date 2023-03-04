@@ -5,6 +5,13 @@ import {UserContext} from './UserContext'
 export const Home = (props: any) => {
     const data = useContext<any>(UserContext)
     console.log(data)
+
+    function changeUser() {
+        console.log('in ChangeUser');
+        // user.switchUser()
+        console.log('switch?' );
+        data.switchUser();
+    }
     return (
         <div>
             Hi

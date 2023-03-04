@@ -5,6 +5,10 @@ import { createDatabase, readDatabase } from './script';
 import {UserContext} from './components/UserContext'
 import {Home} from './components/Home';
 import {Login} from './components/Login'
+import { Signup } from './components/Signup';
+import { List } from './components/List';
+import { NavBar } from './components/NavBar';
+import { RouteContainer } from './components/RouteContainer'
 
 interface Ctx {
   user: { type: string }
@@ -17,8 +21,8 @@ export default function App () {
 
   function changeUser() {
     if (data.user.type === 'default') {
-      data.setUser({type: 'notdefault'})
-    } else if (data.user.type === 'notdefault') {
+      data.setUser({type: 'volunteer'})
+    } else if (data.user.type === 'volunteer') {
       data.setUser({type: 'default' })
     }
     
@@ -29,14 +33,8 @@ export default function App () {
         <>
           <button onClick={() => changeUser()}>Hi</button>
           State: {`${data.user.type}`}
-          <Routes>
-            
-            {data.user.type === 'default' ? 
-            <Route path='/' element={<Home/>}></Route>
-            : 
-            <Route path='/' element={<Login/>}></Route>}
-
-          </Routes>
+          <NavBar/>
+          <RouteContainer/>
         </>
   )
 }

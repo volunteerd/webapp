@@ -22,6 +22,7 @@ export async function readDatabase() {
 export async function changeUser() {
   console.log('in ChangeUser');
   const user = useContext(UserContext);
+  // user.switchUser()
   console.log('switch?', user);
 
   

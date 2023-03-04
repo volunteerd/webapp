@@ -1,0 +1,20 @@
+#loginSubmit {
+  background-color: white;
+  width: fit-content;
+  border: 1px solid black;
+  border-radius: .5em;
+  padding: 10px;
+}
+
+#loginSubmit:hover {
+  background-color: lightblue;
+  border: none;
+  padding: 11px;
+}
+
+#loginSubmit:active {
+  background-color: white;
+  border: 1px solid black;
+  padding: 10px;
+  margin-top: 1px;
+}
