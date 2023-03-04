@@ -1,5 +1,6 @@
-// import fetch from 'node-fetch';
 // const fetch = require('node-fetch');
+import { UserContext } from './components/UserContext';
+import { useContext } from 'react';
 
 export async function createDatabase() {
   console.log('hello Holly');
@@ -9,12 +10,24 @@ export async function createDatabase() {
 export async function readDatabase() {
   console.log('hello Holly');
   try {
-  const result = await fetch('url');
+    const result = await fetch('https://swapi.dev/api/people/1/');
   const data = await result.json();
   console.log(data);
   } catch (error) {
     console.log('error', error)
   }
+  return 'hello';
+}
+
+export async function changeUser() {
+  console.log('in ChangeUser');
+  const user = useContext(UserContext);
+  console.log('switch?', user);
+
+  
+
+
+  
   return 'hello';
 }
 
