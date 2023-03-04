@@ -4,7 +4,7 @@ interface Props {
     setInfo: Function
 }
 
-export const EngineerSignup = (props: Props) => {
+export const EngineerSignup = (props: Props) => { 
     return (
         <div>
             <label>
@@ -14,7 +14,8 @@ export const EngineerSignup = (props: Props) => {
                     <input
                     type='checkbox'
                     name='javascript'
-                    value='javascript'></input>
+                    value='javascript'
+                    onChange={(e) => props.setInfo()}></input>
                 </label>
                 <label>
                     There is no other language
