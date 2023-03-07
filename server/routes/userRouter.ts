@@ -1,6 +1,7 @@
 import express from 'express';
 import { Request, Response, NextFunction } from 'express';
-import userControllers from '../controllers/userControllers';
+const userControllers = require('../controllers/userControllers');
+const npoControllers = require('../controllers/npoControllers');
 const userRouter = express.Router();
 
 // Volunteers
@@ -14,6 +15,7 @@ userRouter.delete('/volDelete', userControllers.volAuth, userControllers.volDele
 // NPOs
 // npoAuth = cookie check
 userRouter.get("/npoLogin", userControllers.npoAuth, userControllers.npoLogin)
-userRouter.post("/npoSignup", userControllers.npoSignup)
+userRouter.post("/npoSignup",(req, res) => console.log('req.body', req.body))
+// userRouter.post("/npoSignup",() => console.log('here'), npoControllers.ein, userControllers.npoSignup)
 userRouter.put('/npoUpdate', userControllers.npoAuth, userControllers.npoUpdate)
 userRouter.delete('/npoDelete', userControllers.npoAuth, userControllers.npoDelete)

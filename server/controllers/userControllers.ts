@@ -3,7 +3,7 @@ import { Request, Response, NextFunction } from 'express';
 
 const db = require('../model/model');
 
-const userController = {
+const userControllers = {
     volSignup: async (req: Request, res: Response, next: NextFunction) => {
       try {
         // Destructure form fields from req.body (firstName, lastName, companyName, bio, linkedinLink, githubLink, username, password)
@@ -31,6 +31,11 @@ const userController = {
     //     next(error);
     // }
     // }
+
+
+
+
+    
 }
 
-module.exports = userController;
+module.exports = userControllers;

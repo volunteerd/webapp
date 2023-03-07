@@ -7,13 +7,13 @@ const port = 8080;
 
 app.use(express.json());
 
-app.use("/user", userRouter);
+app.get("/user", userRouter);
 
-app.get("/", (req: Request, res: Response) => {
-    res.send("Hello, World!");
-  });
+// app.get("/", (req: Request, res: Response) => {
+//     res.send("Hello, World!");
+//   });
 
-  app.listen(port, () => {
-    console.log(`Server listening on port ${port}`);
-  });
+app.listen(port, () => {
+  console.log(`Server listening on port ${port}`);
+});
   
