@@ -64,7 +64,7 @@ export const Login = (props: any) => {
                 </div>
             </form>
             <div style={{marginTop: '5vh'}}>
-                Don&apos;t have an account? <Link to="signup">Sign up!</Link>
+                Don&apos;t have an account? <Link to="/signup">Sign up!</Link>
             </div>
         </div>
     )

@@ -1,10 +1,25 @@
 import React, { useContext, useState } from "react";
+import { ListItem } from "./ListItem";
 
 export const List = (props: any) => {
 
-    const [items, setItems] = useState(["a", "b", "c"]);
+    const fauxData = [
+        {
+            EIN: 12345678,
+            NonProfit: "Salvation Army",
+            ProjectName: "Donation Website",
+            VolunteerTotal: 5,
+            Status: true,
+        }
+    ];
 
-    const list = items.map((item, index) => <p key={index}>{item}</p>);
+    const [EIN, NonProfit, ProjectName, VolunteerTotal, Status] = fauxData;
+
+    const [items, setItems] = useState(fauxData);
+
+    const list = items.map((item, index) => <ListItem key={index} data={fauxData[index]} />);
+
+    // console.log(items)
 
     // const list = <div>hi</div>
 

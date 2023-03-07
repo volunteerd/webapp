@@ -8,6 +8,7 @@ import { Login } from './Login'
 import { Signup } from './Signup';
 import { List } from './List';
 import { NavBar } from './NavBar';
+import { MakeProject } from './MakeProject';
 
 interface Ctx {
     user: { type: string }
@@ -37,6 +38,7 @@ export const RouteContainer = () => {
                         <Route path='/login' element={<Login />}></Route>
                         <Route path='/signup' element={<Signup />}></Route>
                         <Route path='/list' element={<List />} />
+                        <Route path='/makeproject' element={<MakeProject />} />
                     </>
                     : data.user.type === 'volunteer' ?
                         <>

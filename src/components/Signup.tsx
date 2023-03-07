@@ -5,15 +5,18 @@ import { NonProfitSignup } from "./NonProfitSignup";
 
 export const Signup = () => {
 
+    const [invalidPassword, setInvalidPassword] = useState(false)
+
     const [userInfo, setUserInfo] = useState({
         username: '',
         password: '',
+        passwordtwo: '',
         accountType: '',
     })
 
     const [engineerInfo, setEngineerInfo] = useState({
-        languages: [],
-        skills: [],
+        languages: [''],
+        skills: [''],
         specialty: '',
         yoe: 0
     })
@@ -27,12 +30,42 @@ export const Signup = () => {
         zip: 0
     })
 
+    const handleSubmit = (e: any) => {
+        e.preventDefault()
+    }
+    const checkPasswords = () => {
+        if (userInfo.password !== userInfo.passwordtwo) {setInvalidPassword(true)}
+        else {setInvalidPassword(false)}
+    }
+
+    const changeLanguages = (e: any) => {
+        console.log(engineerInfo.languages)
+      const lang = [...engineerInfo.languages]
+      lang.push(e.target.value)
+      setEngineerInfo({...engineerInfo, languages: lang})
+    }
+
+    const changeSkills = (e: any) => {
+        const lang = [...engineerInfo.skills]
+        lang.push(e.target.value)
+        setEngineerInfo({...engineerInfo, skills: lang})
+    }
+
+    const changeSpecialty = (e: any) => {
+        setEngineerInfo({...engineerInfo, specialty: e.target.value})
+    }
+
+    const changeYoe = (e: any) => {
+        setEngineerInfo({...engineerInfo, yoe: e.target.value})
+    }
+
     return (
         <div style={{ height: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'center' }}>
-            <form style={{ borderRadius: '1em', width: 'fit-content', padding: '2em', alignItems: 'flex-start', boxShadow: '1.5px 1.5px 1.5px 1.5px lightblue' }}>
+            <form style={{ borderRadius: '1em', width: 'fit-content', padding: '2em', alignItems: 'flex-start', boxShadow: '1.5px 1.5px 1.5px 1.5px lightblue' }} onSubmit={handleSubmit}>
                 <div style={{ display: 'flex', flexDirection: 'column' }}>
                     <h1 style={{ textAlign: 'center', margin: '5px' }}>Sign up</h1>
-                    <label style={{ margin: '5px' }}>
+                    <br></br>
+                    <label style={{display: 'flex', justifyContent: 'space-between'}}>
                         Username:
                         <input
                             type='text'
@@ -40,7 +73,8 @@ export const Signup = () => {
                             placeholder="username"
                             onChange={(e) => setUserInfo({ ...userInfo, username: e.target.value })}></input>
                     </label>
-                    <label style={{ margin: '5px' }}>
+                    <br></br>
+                    <label style={{display: 'flex', justifyContent: 'space-between'}}>
                         Password:
                         <input
                             type='password'
@@ -48,14 +82,20 @@ export const Signup = () => {
                             placeholder="password"
                             onChange={(e) => setUserInfo({ ...userInfo, password: e.target.value })}></input>
                     </label>
-                    <label style={{ margin: '5px' }}>
+                    <br></br>
+                    <label style={{display: 'flex', justifyContent: 'space-between'}}>
                         Verify Password:
                         <input
                             type='password'
                             name="password2"
-                            placeholder="password two"></input>
+                            placeholder="password two"
+                            onChange={((e) => {setUserInfo({...userInfo, passwordtwo: e.target.value});checkPasswords()})}></input>
                     </label>
-                    <label style={{ margin: '5px' }}>
+                    <div>
+                      {invalidPassword ? <p>Make sure both passwords match</p> : ''}
+                    </div>
+                    <br></br>
+                    <label style={{ display: 'flex', alignItems: 'center' }}>
                         Choose Account Type:
                         <label>
                             <input
@@ -65,7 +105,7 @@ export const Signup = () => {
                                 onChange={(e) => setUserInfo({ ...userInfo, accountType: e.target.value })}></input>
                             Engineer
                         </label>
-                        <label>
+                        <label style={{display: 'flex', alignItems: 'center'}}>
                             <input
                                 type='radio'
                                 value='non-profit'
@@ -74,12 +114,19 @@ export const Signup = () => {
                             Non-Profit
                         </label>
                     </label>
-                    {userInfo.accountType === 'engineer' ? <EngineerSignup setInfo={setEngineerInfo} /> :
-                        userInfo.accountType === 'non-profit' ? <NonProfitSignup setInfo={setNonProfitInfo} /> : ''}
+                    <br></br>
+                    {userInfo.accountType === 'engineer' ? <EngineerSignup changeSkills={changeSkills} changeLanguages={changeLanguages} changeYoe={changeYoe} changeSpecialty={changeSpecialty} /> :
+                        userInfo.accountType === 'non-profit' ? <NonProfitSignup setInfo={setNonProfitInfo} /> :  ''}
+                </div>
+                <div style={{display: 'flex', justifyContent: 'center', marginTop: '3vh'}}>
+                    <input
+                    type="submit"
+                    value="Submit"
+                    id="loginSubmit"></input>
                 </div>
             </form>
-            <div>
-                Already have an account? <Link to='/'>Log in</Link>
+            <div style={{marginTop: '5vh'}}>
+                Already have an account? <Link to='/login'>Log in</Link>
             </div>
         </div>
     )

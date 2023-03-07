@@ -9,6 +9,7 @@ import { Signup } from './components/Signup';
 import { List } from './components/List';
 import { NavBar } from './components/NavBar';
 import { RouteContainer } from './components/RouteContainer'
+import { Footer } from './components/Footer';
 
 interface Ctx {
   user: { type: string }
@@ -31,10 +32,11 @@ export default function App () {
 
   return (
         <>
-          <button onClick={() => changeUser()}>Hi</button>
-          State: {`${data.user.type}`}
+          {/* <button onClick={() => changeUser()}>Hi</button>
+          State: {`${data.user.type}`} */}
           <NavBar/>
           <RouteContainer/>
+          <Footer/>
         </>
   )
 }
