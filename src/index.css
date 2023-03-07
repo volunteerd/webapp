@@ -1,3 +1,44 @@
-* {
-  color: red;
+#loginSubmit {
+  background-color: white;
+  width: fit-content;
+  border: 1px solid black;
+  border-radius: .5em;
+  padding: 10px;
+}
+
+#loginSubmit:hover {
+  background-color: lightblue;
+  border: none;
+  padding: 11px;
+}
+
+#loginSubmit:active {
+  background-color: white;
+  border: 1px solid black;
+  padding: 10px;
+  margin-top: 1px;
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.navlink {
+  color: black;
+  text-decoration: none;
+}
+
+.navlink:hover {
+  color: blue;
+  text-decoration: underline;
 }

@@ -8,7 +8,8 @@
     "start": "nodemon ./server/server.ts",
     "dev": "webpack server --port 3000 & nodemon ./server/server.ts",
     "build": "NODE_ENV=production webpack",
-    "windev": "concurrently \"nodemon server/server.js\" \"webpack-dev-server --open\""
+    "windev": "concurrently \"nodemon server/server.js\" \"webpack-dev-server --open\"",
+    "henry": "webpack server --port 3001"
   },
   "repository": {
     "type": "git",

@@ -1,0 +1,75 @@
+/*
+//create volunteer_user table
+CREATE TABLE volunteer_user (
+    ID serial PRIMARY KEY  NOT NULL,
+    FIRST_NAME    VARCHAR(50)   NOT NULL,
+    LAST_NAME     VARCHAR(50)   NOT NULL,
+    COMPANY_NAME  VARCHAR(50),
+    BIO           VARCHAR(255),
+    LINKEDIN_LINK VARCHAR(255),
+    GITHUB_LINK   VARCHAR(255),
+    USERNAME   VARCHAR(255),
+    EMAIL   VARCHAR(255),
+    TAGS       text[], 
+    PASSWORD   VARCHAR(50)     
+)
+
+//insert record into volunteer_user
+INSERT INTO volunteer_user(FIRST_NAME, LAST_NAME, COMPANY_NAME, BIO, LINKEDIN_LINK, GITHUB_LINK, USERNAME, TAGS)
+VALUES ('Jacob', 'Cole', 'startup', 'this is my bio', 'https://www.linkedin.com/in/jacob-cole-b98881a6/', 'https://github.com/jacobcole34', 'jacobcole', ARRAY['tag1'])
+
+//Create nonprofits
+CREATE TABLE nonprofits (
+    ID serial PRIMARY KEY  NOT NULL,
+    NONPROFIT_NAME    VARCHAR(50)   NOT NULL,
+    EIN     VARCHAR(50)   NOT NULL,
+    IMAGE_LINK  VARCHAR(255),
+    ADDRESS           VARCHAR(255),
+    CITY VARCHAR(255),
+    STATE   VARCHAR(2),
+    ZIPCODE VARCHAR(10),
+    PHONE   VARCHAR(31),
+    EMAIL   VARCHAR(255),
+    CLAIMED BOOLEAN,
+    USERNAME   VARCHAR(255),
+    PASSWORD   VARCHAR(50)     
+)
+
+CREATE TABLE projects (
+    ID serial PRIMARY KEY NOT NULL,
+    NAME    VARCHAR(255),
+    NONPROFITS_ID REFERENCES NONPROFITS(ID),
+    DESCRIPTION VARCHAR(1000),
+    VOLUNTEER_ADMIN_ID REFERENCES VOLUNTEER_USER(ID),
+    TAGS text[] REFERENCES ,
+    ACTIVE BOOLEAN
+)
+
+INSERT INTO projects (NAME, NONPROFITS_ID, DESCRIPTION, VOLUNTEER_ADMIN_ID, ACTIVE)
+VALUES ('Pickchu Project 1', 1, 'create a website for pikachu', 1, TRUE)
+
+INSERT INTO projects (NAME, NONPROFITS_ID, DESCRIPTION, VOLUNTEER_ADMIN_ID, ACTIVE)
+VALUES ('Pickchu Project 2', 1, 'create a database for pikachu', 1, TRUE)
+
+
+CREATE TABLE projects_liked (
+    id serial PRIMARY KEY,
+    volunteer_id integer REFERENCES volunteer_user(id),
+    project_id integer REFERENCES projects(id)
+);
+
+CREATE TABLE projects_active (
+    id serial PRIMARY KEY,
+    volunteer_id integer REFERENCES volunteer_user(id),
+    project_id integer REFERENCES projects(id),
+);
+
+CREATE TABLE tags (
+    id serial PRIMARY KEY,
+    tagname varchar(255)
+);
+
+ALTER TABLE table-name
+  ADD new-column-name column-definition;
+
+*/
