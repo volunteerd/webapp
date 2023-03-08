@@ -12,7 +12,7 @@
       "strict": true,
       "sourceMap": true,
       "allowJs": true,
-      "target": "es5",
+      "target": "es6",
     },
     "exclude": [
       "node_modules"

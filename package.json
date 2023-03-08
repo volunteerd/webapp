@@ -8,7 +8,7 @@
     "start": "nodemon ./server/server.ts",
     "dev": "webpack server --port 3000 & nodemon ./server/server.ts",
     "build": "NODE_ENV=production webpack",
-    "windev": "concurrently \"nodemon server/server.js\" \"webpack-dev-server --open\"",
+    "windev": "concurrently \"nodemon server/server.ts\" \"webpack-dev-server --open\"",
     "henry": "webpack server --port 3001"
   },
   "repository": {
@@ -23,6 +23,7 @@
   "homepage": "https://github.com/volunteerd/webapp#readme",
   "dependencies": {
     "@types/express": "^4.17.17",
+    "@types/node-fetch": "^2.6.2",
     "@types/react": "^18.0.28",
     "@types/typescript": "^2.0.0",
     "concurrently": "^7.6.0",

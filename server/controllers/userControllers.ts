@@ -1,9 +1,14 @@
+console.log('userController imported');
+
 import express from 'express';
 import { Request, Response, NextFunction } from 'express';
 
 const db = require('../model/model');
 
 const userControllers = {
+    test: function(req: Request, res: Response){
+      console.log('i am in test')
+    },
     volSignup: async (req: Request, res: Response, next: NextFunction) => {
       try {
         // Destructure form fields from req.body (firstName, lastName, companyName, bio, linkedinLink, githubLink, username, password)
@@ -37,5 +42,4 @@ const userControllers = {
 
     
 }
-
 module.exports = userControllers;

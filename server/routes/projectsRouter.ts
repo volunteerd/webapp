@@ -9,3 +9,5 @@ projectsRouter.get("/getProject/:id", projectControllers.getProject)
 projectsRouter.post("/projectCreate", projectControllers.projectCreate)
 projectsRouter.put('/projectUpdate', projectControllers.projectUpdate)
 projectsRouter.delete('/projectDelete', projectControllers.projectDelete)
+
+module.exports = projectsRouter;
