@@ -19,7 +19,7 @@ const userRouter = express.Router();
 // npoAuth = cookie check
 // userRouter.get("/npoLogin", userControllers.npoAuth, userControllers.npoLogin)
 // userRouter.get("/npoSignup",userControllers.test)
-userRouter.post("/npoSignup", npoControllers.ein)
+userRouter.post("/npoSignup", npoControllers.einLookup)
 // userRouter.put('/npoUpdate', userControllers.npoAuth, userControllers.npoUpdate)
 // userRouter.delete('/npoDelete', userControllers.npoAuth, userControllers.npoDelete)
 
