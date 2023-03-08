@@ -1,7 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { EngineerSignup } from "./EngineerSignup";
 import { NonProfitSignup } from "./NonProfitSignup";
+
+interface EngineerInfo {
+    languages: Array<string | null>
+    skills: Array<string | null>
+    specialty: string
+    yoe: number
+}
 
 export const Signup = () => {
 
@@ -14,21 +21,35 @@ export const Signup = () => {
         accountType: '',
     })
 
-    const [engineerInfo, setEngineerInfo] = useState({
-        languages: [''],
-        skills: [''],
+    const [engineerInfo, setEngineerInfo] = useState<EngineerInfo>({
+        languages: [],
+        skills: [],
         specialty: '',
         yoe: 0
     })
 
     const [nonProfitInfo, setNonProfitInfo] = useState({
         name: '',
-        field: '',
-        country: '',
-        state: '',
-        address: '',
+        ein: '',
+        email: '',
         zip: 0
     })
+
+    const changeNPName = (e: any) => {
+        setNonProfitInfo({...nonProfitInfo, name: e.target.value})
+    }
+
+    const changeEin = (e: any) => {
+        setNonProfitInfo({...nonProfitInfo, ein: e.target.value})
+    }
+
+    const changeEmail = (e: any) => {
+        setNonProfitInfo({...nonProfitInfo, email: e.target.value})
+    }
+
+    const changeZip = (e: any) => {
+        setNonProfitInfo({...nonProfitInfo, zip: e.target.value})
+    }
 
     const handleSubmit = (e: any) => {
         e.preventDefault()
@@ -40,15 +61,40 @@ export const Signup = () => {
 
     const changeLanguages = (e: any) => {
         console.log(engineerInfo.languages)
-      const lang = [...engineerInfo.languages]
-      lang.push(e.target.value)
-      setEngineerInfo({...engineerInfo, languages: lang})
+      if (engineerInfo.languages.includes(e.target.value)) {
+        const result = []
+        for (const langs of engineerInfo.languages) {
+            if (langs === e.target.value) {
+                continue
+            } else {
+                result.push(langs)
+            }
+        }
+        setEngineerInfo({...engineerInfo, languages: result})
+      } else {
+        const lang = [...engineerInfo.languages]
+        lang.push(e.target.value)
+        setEngineerInfo({...engineerInfo, languages: lang})
+      }
     }
 
     const changeSkills = (e: any) => {
-        const lang = [...engineerInfo.skills]
-        lang.push(e.target.value)
-        setEngineerInfo({...engineerInfo, skills: lang})
+        console.log(engineerInfo.skills)
+        if (engineerInfo.skills.includes(e.target.value)) {
+          const result = []
+          for (const skills of engineerInfo.skills) {
+              if (skills === e.target.value) {
+                  continue
+              } else {
+                  result.push(skills)
+              }
+          }
+          setEngineerInfo({...engineerInfo, skills: result})
+        } else {
+          const skill = [...engineerInfo.skills]
+          skill.push(e.target.value)
+          setEngineerInfo({...engineerInfo, skills: skill})
+        }
     }
 
     const changeSpecialty = (e: any) => {
@@ -58,6 +104,10 @@ export const Signup = () => {
     const changeYoe = (e: any) => {
         setEngineerInfo({...engineerInfo, yoe: e.target.value})
     }
+
+    useEffect(() => {
+        checkPasswords()
+    }, [userInfo.passwordtwo])
 
     return (
         <div style={{ height: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'center' }}>
@@ -88,11 +138,11 @@ export const Signup = () => {
                         <input
                             type='password'
                             name="password2"
-                            placeholder="password two"
-                            onChange={((e) => {setUserInfo({...userInfo, passwordtwo: e.target.value});checkPasswords()})}></input>
+                            placeholder="verify"
+                            onChange={((e) => {setUserInfo({...userInfo, passwordtwo: e.target.value})})}></input>
                     </label>
                     <div>
-                      {invalidPassword ? <p>Make sure both passwords match</p> : ''}
+                      {invalidPassword ? <p style={{color: 'red', fontSize: '0.7em'}}>Make sure both passwords match</p> : ''}
                     </div>
                     <br></br>
                     <label style={{ display: 'flex', alignItems: 'center' }}>
@@ -116,7 +166,7 @@ export const Signup = () => {
                     </label>
                     <br></br>
                     {userInfo.accountType === 'engineer' ? <EngineerSignup changeSkills={changeSkills} changeLanguages={changeLanguages} changeYoe={changeYoe} changeSpecialty={changeSpecialty} /> :
-                        userInfo.accountType === 'non-profit' ? <NonProfitSignup setInfo={setNonProfitInfo} /> :  ''}
+                        userInfo.accountType === 'non-profit' ? <NonProfitSignup changeNPName={changeNPName} changeEin={changeEin} changeZip={changeZip} changeEmail={changeEmail} /> :  ''}
                 </div>
                 <div style={{display: 'flex', justifyContent: 'center', marginTop: '3vh'}}>
                     <input

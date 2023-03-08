@@ -1,6 +1,7 @@
 import express from 'express';
 import { Request, Response, NextFunction } from 'express';
 // import node-fetch
+// const fetch = require('node-fetch');
 
 const db = require('../model/model');
 
@@ -15,7 +16,7 @@ const npoControllers = {
       // Assign values of first object to res.locals
         // ein, name, address, city, state, zipcode, 
       // https://projects.propublica.org/nonprofits/api/v2/organizations/142007220.json
-        const result = await node-fetch(`https://projects.propublica.org/nonprofits/api/v2/organizations/${ein}.json`);
+        const result = await fetch(`https://projects.propublica.org/nonprofits/api/v2/organizations/${ein}.json`);
         console.log('result',result);
         res.send(result);
     } 

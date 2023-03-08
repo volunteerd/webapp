@@ -33,49 +33,56 @@ export const EngineerSignup = (props: Props) => {
                         <input
                         type='checkbox'
                         name='python'
-                        value='python'></input>
+                        value='python'
+                        onChange={(e) => props.changeLanguages(e)}></input>
                         Python
                     </label>
                     <label style={{margin: '5px'}}>
                         <input
                         type='checkbox'
                         name='C++'
-                        value='C++'></input>
+                        value='C++'
+                        onChange={(e) => props.changeLanguages(e)}></input>
                         C++
                     </label>
                     <label style={{margin: '5px'}}>
                         <input
                         type='checkbox'
                         name='java'
-                        value='java'></input>
+                        value='java'
+                        onChange={(e) => props.changeLanguages(e)}></input>
                         Java
                     </label>
                     <label style={{margin: '5px'}}>
                         <input
                         type='checkbox'
                         name='C'
-                        value='C'></input>
+                        value='C'
+                        onChange={(e) => props.changeLanguages(e)}></input>
                         C
                     </label>
                     <label style={{margin: '5px'}}>
                         <input
                         type='checkbox'
                         name='swift'
-                        value='swift'></input>
+                        value='swift'
+                        onChange={(e) => props.changeLanguages(e)}></input>
                         Swift
                     </label>
                     <label style={{margin: '5px'}}>
                         <input
                         type='checkbox'
                         name='kotlin'
-                        value='kotlin'></input>
+                        value='kotlin'
+                        onChange={(e) => props.changeLanguages(e)}></input>
                         Kotlin
                     </label>
                     <label style={{margin: '5px'}}>
                         <input
                         type='checkbox'
                         name='go'
-                        value='go'></input>
+                        value='go'
+                        onChange={(e) => props.changeLanguages(e)}></input>
                         Go
                     </label>
                 </div>
@@ -88,7 +95,7 @@ export const EngineerSignup = (props: Props) => {
                         type='checkbox'
                         name='frontend'
                         value='frontend'
-                        ></input>
+                        onChange={(e) => props.changeSkills(e)}></input>
                         Frontend
                     </label>
                     <label style={{ margin: '5px' }}>
@@ -96,49 +103,55 @@ export const EngineerSignup = (props: Props) => {
                         type='checkbox'
                         name='fullstack'
                         value='fullstack'
-                        ></input>
+                        onChange={(e) => props.changeSkills(e)}></input>
                         Fullstack
                     </label>
                     <label style={{margin: '5px'}}>
                         <input
                         type='checkbox'
                         name='backend'
-                        value='backend'></input>
+                        value='backend'
+                        onChange={(e) => props.changeSkills(e)}></input>
                         Backend
                     </label>
                     <label style={{margin: '5px'}}>
                         <input
                         type='checkbox'
                         name='devops'
-                        value='devops'></input>
+                        value='devops'
+                        onChange={(e) => props.changeSkills(e)}></input>
                         Devops
                     </label>
                     <label style={{margin: '5px'}}>
                         <input
                         type='checkbox'
                         name='databases'
-                        value='databases'></input>
+                        value='databases'
+                        onChange={(e) => props.changeSkills(e)}></input>
                         Databases
                     </label>
                     <label style={{margin: '5px'}}>
                         <input
                         type='checkbox'
                         name='microservices'
-                        value='microservices'></input>
+                        value='microservices'
+                        onChange={(e) => props.changeSkills(e)}></input>
                         Microservices
                     </label>
                     <label style={{margin: '5px'}}>
                         <input
                         type='checkbox'
                         name='web-development'
-                        value='web-development'></input>
+                        value='web-development'
+                        onChange={(e) => props.changeSkills(e)}></input>
                         Web Development
                     </label>
                     <label style={{margin: '5px'}}>
                         <input
                         type='checkbox'
                         name='mobile-development'
-                        value='mobile-development'></input>
+                        value='mobile-development'
+                        onChange={(e) => props.changeSkills(e)}></input>
                         Mobile Development
                     </label>
                 </div>

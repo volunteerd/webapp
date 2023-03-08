@@ -9,6 +9,9 @@ import { Signup } from './Signup';
 import { List } from './List';
 import { NavBar } from './NavBar';
 import { MakeProject } from './MakeProject';
+import {ProjectDetails } from './ProjectDetails';
+import { EngineerProfile } from './EngineerProfile';
+import { NPOProfile } from './NPOProfile';
 
 interface Ctx {
     user: { type: string }
@@ -19,44 +22,44 @@ export const RouteContainer = () => {
     const data: Ctx = useContext<any>(UserContext) // user/setUser
     console.log('user', data)
 
-    function changeUser() {
-        if (data.user.type === 'default') {
-            data.setUser({ type: 'volunteer' })
-        } else if (data.user.type === 'volunteer') {
-            data.setUser({ type: 'default' })
-        }
-        console.log('in changeUser')
-    }
+    // function changeUser() {
+    //     if (data.user.type === 'default') {
+    //         data.setUser({ type: 'volunteer' })
+    //     } else if (data.user.type === 'volunteer') {
+    //         data.setUser({ type: 'default' })
+    //     }
+    //     console.log('in changeUser')
+    // }
 
     return (
         <>
             <Routes>
-
                 {data.user.type === 'default' ?
                     <>
-                        <Route path='/' element={<Home />}></Route>
+                        <Route path='/' element={<List />}></Route>
                         <Route path='/login' element={<Login />}></Route>
                         <Route path='/signup' element={<Signup />}></Route>
-                        <Route path='/list' element={<List />} />
-                        <Route path='/makeproject' element={<MakeProject />} />
                     </>
                     : data.user.type === 'volunteer' ?
                         <>
-                            <Route path='/' element={<Login />}></Route>
+                            <Route path='/' element={<List />}></Route>
+                            <Route path='/profile' element={<EngineerProfile />}></Route>
                             <Route path='/login' element={<Login />}></Route>
                             <Route path='/signup' element={<Signup />}></Route>
-                            <Route path='/list' element={<List />} />
+                            <Route path='/projectdetails' element={<ProjectDetails />} />
                         </>
                         : data.user.type === 'nonprofit' ?
                             <>
-                                <Route path='/' element={<Login />}></Route>
+                                <Route path='/' element={<List />}></Route>
+                                <Route path='/profile' element={<NPOProfile />}></Route>
                                 <Route path='/login' element={<Login />}></Route>
                                 <Route path='/signup' element={<Signup />}></Route>
-                                <Route path='/list' element={<List />} />
+                                <Route path='/makeproject' element={<MakeProject />} />
+                                <Route path='/projectdetails' element={<ProjectDetails />} />
                             </>
                         : <>User not identified - what are you doing</>
                 }
-
+                <Route path='*' element={<List />}/>
             </Routes>
         </>
     )

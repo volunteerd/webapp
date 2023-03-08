@@ -1,7 +1,10 @@
 import React from "react";
 
 interface Props {
-    setInfo: Function
+   changeNPName: Function
+   changeEmail: Function
+   changeZip: Function
+   changeEin: Function
 }
 
 export const NonProfitSignup = (props: Props) => {
@@ -13,7 +16,7 @@ export const NonProfitSignup = (props: Props) => {
                 type="text"
                 name="org-name"
                 placeholder="organization name"
-                ></input>
+                onChange={(e) => props.changeNPName(e)}></input>
             </label>
             <br></br>
             <label style={{display: 'flex', justifyContent: 'space-between'}}>
@@ -21,7 +24,8 @@ export const NonProfitSignup = (props: Props) => {
                 <input
                 type="text"
                 name="zip"
-                placeholder="zip code"></input>
+                placeholder="zip code"
+                onChange={(e) => props.changeZip(e)}></input>
             </label>
             <br></br>
             <label style={{display: 'flex', justifyContent: 'space-between'}}>
@@ -29,7 +33,8 @@ export const NonProfitSignup = (props: Props) => {
                 <input
                 type="text"
                 name="email"
-                placeholder="email"></input>
+                placeholder="email"
+                onChange={(e) => props.changeEmail(e)}></input>
             </label>
             <br></br>
             <label style={{display: 'flex', justifyContent: 'space-between'}}>
@@ -37,7 +42,8 @@ export const NonProfitSignup = (props: Props) => {
                 <input
                 type="text"
                 name="ein"
-                placeholder="EIN"></input>
+                placeholder="EIN"
+                onChange={(e) => props.changeEin(e)}></input>
             </label>
         </div>
     )
